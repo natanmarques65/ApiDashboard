@@ -24,9 +24,9 @@ namespace ApiDashboard.Controllers
         }
 
         [HttpGet("ranking")]
-        public async Task<ActionResult<List<int>>> GetSellerRanking([FromQuery] int maxSeller)
+        public async Task<ActionResult<List<SellerRanking>>> GetSellerRanking([FromQuery] int maxSeller)
         {
-            return Ok();
+            return await _sellerService.GetSellerRanking(maxSeller);
         }
     }
 }

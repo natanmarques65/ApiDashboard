@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using ApiDashboard.Respository;
 using ApiDashboard.Services;
 
 namespace ApiDashboard
@@ -35,6 +36,8 @@ namespace ApiDashboard
             services.AddScoped<SellerService>();
             services.AddScoped<ProductService>();
             services.AddScoped<SaleService>();
+
+            services.AddScoped<SaleRepository>();
 
 
             /* Mappers */

@@ -1,4 +1,5 @@
 ﻿using ApiDashboard.Model;
+using ApiDashboard.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiDashboard.Controllers
@@ -8,10 +9,15 @@ namespace ApiDashboard.Controllers
     [ApiController]
     public class SalesController : ControllerBase
     {
-
-        public Task<List<Sale>> GetAllSales()
+        private readonly SaleService _saleService;
+        public SalesController(SaleService saleService)
         {
-            return Task.FromResult(new List<Sale>());
+            _saleService = saleService;
+        }
+
+        public async Task<List<Sale>> GetAllSales()
+        {
+            return await _saleService.GetAllSales();
         }
 
     }
